@@ -24,20 +24,52 @@ html, body {
     font-size: 10px;
 }
 
-/* menu */
-i{
-    font-size: 15px;
-    cursor: pointer;
+/* menu items*/
+.items{
+    display: flex ;
+    flex-direction: column;
+    margin: 0;
 }
 
-.fa-solid{
-    color: #999;
+/* container item*/
+
+.item-inner{
+    display: flex ;
+    flex-direction: row;
+    background-color: blue;
+    margin: 0;
+    align-items: center;
+    border-bottom: 1px solid gray;
+}
+.item-pic{
+    font-size: 40px;
+    background-color: red;
+}
+
+.item-info{
+    display: flex ;
+    flex-direction: column;
+    background-color: red;
+}
+
+.item-info p{
+    margin: 5 ;
+    padding: 0;
+
+}
+
+.item-add{
+    border: 1px solid gray;
+    border-radius: 50%;
+    width: 50px;
+    margin-left: auto;
+    padding: 0;
 }
 
 /* layout */
 
 main, header{
-    width: 290px;
+    width: 350px;
     margin: 0 auto;
 }
 

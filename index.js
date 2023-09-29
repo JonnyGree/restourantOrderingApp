@@ -6,7 +6,7 @@ function getItemsHtml(){
     Items.forEach(function(item){
      
         itemsHtml += `
-                <div class="tweet-inner">
+                <div class="item-inner">
                     <p class="item-pic">${item.emoji}</p>
                     <div class="item-info">
                         <p class="item-name">${item.name}</p>
@@ -14,8 +14,8 @@ function getItemsHtml(){
                         <p class="item-price">${item.price}</p>
                     </div>
                     <div class="item-add">
-                        <span class="tweet-detail">
-                            <i class="fa fa-plus" aria-hidden="true"
+                        <span class="item-detail">
+                            <i class="fa fa-plus fa-3x" aria-hidden="true"
                             data-reply="${item.id}"
                             ></i>
                         </span> 
