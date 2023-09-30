@@ -20,11 +20,6 @@
             <p>the best burger and pizzas in downtown Austin, Texas</p>
         </header>
         <main>
-            <!-- <div class="tweet-input-area">
-                <img src="images/scrimbalogo.png" class="profile-pic">
-                <textarea placeholder="What's happening?" id="tweet-input"></textarea>
-            </div>
-            <button id="tweet-btn">Tweet</button> -->
             <div class="items" id="items">
                 <!-- available items here!! -->
             </div>
@@ -47,6 +42,20 @@
                         </div>
                         <button class="order-complete-btn" id="order-complete-btn">Complete Order</button>
                     </div>     
+                </div>
+            </div>
+            <div class="modal" id="modal">
+                <div class="close-modal-btn-container">
+                    <button class="modal-close-btn" id="modal-close-btn">X</button>
+                </div>
+                <div class="modal-inner" id="modal-inner">
+                    <h2>Enter Card Details</h2>
+                    <form class ="consent-form" id="consent-form">
+                        <input type="text" name="fullName" placeholder="Enter your full name" required/>
+                        <input id="ccn" type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="ccc-number" maxlength="19" placeholder="xxxx xxxx xxxx xxxx">
+                        <input id="cvv" type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cvv-number" maxlength="3" placeholder="xxx">
+                    </form>
+                    <button class="order-complete-btn" id="pay-btn">PAY</button>
                 </div>
             </div>
         </main>
