@@ -1,27 +1,38 @@
 html, body {
     margin: 0;
     padding: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Smythe', cursive;
 }
 
 /* typography and icons */
 
+/* layout */
+
+main, header{
+    width: 400px;
+    margin: 0 auto;
+}
+
 /* header */
 .header{
-    background-image: url("./images/banner.png");
+    background-image: url("./images/banner2.png");
     background-size: cover;
     padding: 10px;
 }
 .header h1{
     color: white;
     margin-bottom: 10px;
-    font-size: 20px;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
 }
 
 .header p{
     color: white;
-    margin-bottom: 10px;
     font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    margin-bottom: 20px;
 }
 
 /* menu items*/
@@ -29,6 +40,7 @@ html, body {
     display: flex ;
     flex-direction: column;
     margin: 0;
+    padding : 0px 10px ;
 }
 
 /* container item*/
@@ -36,131 +48,91 @@ html, body {
 .item-inner{
     display: flex ;
     flex-direction: row;
-    background-color: blue;
     margin: 0;
     align-items: center;
     border-bottom: 1px solid gray;
+    height: 100px;
 }
 .item-pic{
     font-size: 40px;
-    background-color: red;
 }
 
 .item-info{
     display: flex ;
     flex-direction: column;
-    background-color: red;
 }
 
 .item-info p{
-    margin: 5 ;
+    margin: 2px ;
     padding: 0;
+}
 
+.item-info .item-ingredients{
+    color: #8B8B8B;
+    font-size: 10px;
+    margin-bottom: 10px;
 }
 
 .item-add{
+    margin-left: auto;
+}
+.item-add-btn{
+    text-align: center;
+    font-size: 39px;
     border: 1px solid gray;
     border-radius: 50%;
     width: 50px;
-    margin-left: auto;
-    padding: 0;
+    height: 50px;
 }
 
-/* layout */
-
-main, header{
-    width: 350px;
-    margin: 0 auto;
-}
-
-
-.tweet-input-area {
+/* order box*/
+.order-list{
     display: flex;
-    align-items: flex-start;
-    gap: 10px;
+    flex-direction: column;
+    margin: 0;
+    padding : 0px 10px ;
+    text-align: center;
+
 }
 
-/* textareas + btn */
+.order-item{
+    display: flex;
+    flex-direction: row;
+    gap: 20px ;
+    align-items: center;
+    height: 30px;
+}
 
-textarea{
+.order-item-remove{
+    color: #8B8B8B;
+    font-size: 10px; 
+}
+
+.order-item-price{
+    margin-left: auto;   
+}
+.order-summary{
+    display: flex;
+    border-top: 1px solid black;
+}
+.order-summary-price{
+    margin-left: auto;  
+}
+
+.order-complete-btn{
+    border-radius: 3px;
+    background: #16DB99;
+    /* shadow/sm */
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+    color: var(--white, #FFF);
+    font-family: Verdana;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px; /* 150% */
     border: none;
-    resize: none;
-    padding: 10px;
-    margin: 0 0 20px 0;
-    height: 60px;
-    width: 100%;
-    font-size: 20px;
-    line-height: 30px;
+    height: 35px;
 }
 
-button{
-    background-color: #1DA1F2;
-    border: none;
-    color: white;
-    padding: 10px 19px;
-    border-radius: 20px;
-    width: 100%; 
-    cursor: pointer;
-    font-size: 20px;
-    font-weight: 600;
-}
 
-/* tweet */
 
-.tweet{
-    border-top: 1px solid lightgray;
-    padding: 20px 0 0 0;
-    width: 100%;
-    margin: 15px 0;
-}
-
-.tweet-inner{
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-}
-
-.tweet-details{
-    display: flex;
-    font-size: 13px;
-    justify-content: space-between;
-    width: 160px;
-}
-
-.tweet-detail{
-    display: flex;
-    gap: 4px;
-}
-
-.tweet-reply{
-    border-top: 1px solid lightgray;
-    padding: 20px 0 0 0px;
-    margin: 10px 0 10px 40px;
-    width: 80%;
-}
-
-.handle{
-    font-size: 12px;
-    font-weight: 500;
-    color: #555;
-    margin-top: 0;
-}
-
-.tweet-text{
-    width: 207px;
-    font-size: 14px;
-    line-height: 20px;
-}
-
-/* images */
-
-.profile-pic{
-    border: 1px solid lightgray;
-    border-radius: 50%;
-    width: 48px;
-}
-
-/* utility */
-.hidden{
-    display: none;
-}

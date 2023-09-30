@@ -1,5 +1,11 @@
 import { menuArray as Items } from './data.js'
 
+document.addEventListener('click', function(e){
+    console.log(e)
+})
+
+
+
 function getItemsHtml(){
     let itemsHtml = ``
     
@@ -11,13 +17,13 @@ function getItemsHtml(){
                     <div class="item-info">
                         <p class="item-name">${item.name}</p>
                         <p class="item-ingredients">${item.ingredients.join(", ")}</p>
-                        <p class="item-price">${item.price}</p>
+                        <p class="item-price">${item.price} $</p>
                     </div>
                     <div class="item-add">
                         <span class="item-detail">
-                            <i class="fa fa-plus fa-3x" aria-hidden="true"
+                            <p class="item-add-btn"
                             data-reply="${item.id}"
-                            ></i>
+                            >+</p>
                         </span> 
                     </div>            
                 </div>
