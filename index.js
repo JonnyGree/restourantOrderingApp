@@ -30,7 +30,7 @@ consentForm.addEventListener('submit', function(e){
     console.log(fullName)
     modalForm.style.display = 'none'
     renderOrderComplete(fullName)
-
+    chartArray = []
   
 }) 
 
