@@ -35,9 +35,8 @@ consentForm.addEventListener('submit', function(e){
 }) 
 
 function handleAddItemClick(itemId){
-    console.log(itemId)
     const targerItemObj = Items.filter(function(item){
-        return item.id == itemId
+        return item.id === Number(itemId)
     })[0]
 
     chartArray.push(
@@ -46,7 +45,6 @@ function handleAddItemClick(itemId){
             uuid: uuidv4()
         }
     )
-    console.log(chartArray)
     renderChart()
 }
 
@@ -56,7 +54,6 @@ function handleRemoveItemClick(uuid){
         return item.uuid != uuid
     })
 
-    console.log(chartArray)
     renderChart()
 }
 
@@ -91,8 +88,7 @@ function getItemsHtml(){
 
 function getChartHtml(){
     let itemsHtml = ``
-
-    if (chartArray.length == 0) {return itemsHtml}
+    if (chartArray.length === 0) {return itemsHtml}
     itemsHtml = `
         <p>Your order</p>
         <div class="order-list" id="order-list"></div>
