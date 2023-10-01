@@ -2,6 +2,8 @@ import { menuArray as Items } from './data.js'
 import { v4 as uuidv4 } from 'https://jspm.dev/uuid';
 
 const modalForm = document.getElementById('modal')
+const consentForm = document.getElementById('consent-form')
+
 let chartArray = []
 
 document.addEventListener('click', function(e){
@@ -15,17 +17,24 @@ document.addEventListener('click', function(e){
         handleRemoveItemClick(e.target.dataset.remove)
     }
     else if(e.target.id === 'order-complete-btn'){
-        console.log("confirm order button pressed") 
         modalForm.style.display = 'inline'
      }
      else if(e.target.id === 'modal-close-btn'){
-        console.log("close modal btn pressed") 
-     }
-     else if(e.target.id === 'pay-btn'){
-        console.log("pay btn pressed") 
-     }
-    
+        modalForm.style.display = 'none'
+     }   
 })
+
+consentForm.addEventListener('submit', function(e){
+    e.preventDefault()
+    
+    const consentFormData = new FormData(consentForm)
+    const fullName = consentFormData.get('fullName')
+    console.log(fullName)
+    modalForm.style.display = 'none'
+    renderOrderComplete(fullName)
+
+  
+}) 
 
 function handleAddItemClick(itemId){
     console.log(itemId)
@@ -113,6 +122,12 @@ function getChartHtml(){
    return itemsHtml 
 }
 
+function getOrderCompleteHtml(fullName){
+    let itemsHtml = `<h2 id="order-complete-banner">Thanks, ${fullName}! Your order is on its way!</h2>`
+    return itemsHtml
+}
+
+
 function renderItems(){
     document.getElementById('items').innerHTML = getItemsHtml()
 }
@@ -120,5 +135,11 @@ function renderItems(){
 function renderChart(){
     document.getElementById('order').innerHTML = getChartHtml()
 }
+
+function renderOrderComplete(fullName){
+    document.getElementById('order').innerHTML = getOrderCompleteHtml(fullName)
+}
+
+
 
 renderItems()
