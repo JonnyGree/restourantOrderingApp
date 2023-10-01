@@ -8,7 +8,11 @@ document.addEventListener('click', function(e){
     console.log(e)
     if(e.target.dataset.add){
         console.log(`add button ${e.target.dataset.add}`) 
-        handleaddItemClick(e.target.dataset.add)
+        handleAddItemClick(e.target.dataset.add)
+    }
+    else if(e.target.dataset.remove){
+        console.log(`remove button ${e.target.dataset.remove}`) 
+        handleRemoveItemClick(e.target.dataset.remove)
     }
     else if(e.target.id === 'order-complete-btn'){
         console.log("confirm order button pressed") 
@@ -16,16 +20,14 @@ document.addEventListener('click', function(e){
      }
      else if(e.target.id === 'modal-close-btn'){
         console.log("close modal btn pressed") 
-        modalForm.style.display = 'none'
      }
      else if(e.target.id === 'pay-btn'){
         console.log("pay btn pressed") 
-        modalForm.style.display = 'none'
      }
     
 })
 
-function handleaddItemClick(itemId){
+function handleAddItemClick(itemId){
     console.log(itemId)
     const targerItemObj = Items.filter(function(item){
         return item.id == itemId
@@ -38,11 +40,23 @@ function handleaddItemClick(itemId){
         }
     )
     console.log(chartArray)
+    renderChart()
+}
+
+function handleRemoveItemClick(uuid){
+    console.log(uuid)
+    chartArray = chartArray.filter(function(item){
+        return item.uuid != uuid
+    })
+
+    console.log(chartArray)
+    renderChart()
 }
 
 
 
 function getItemsHtml(){
+
     let itemsHtml = ``
     
     Items.forEach(function(item){
@@ -68,8 +82,43 @@ function getItemsHtml(){
    return itemsHtml 
 }
 
-function render(){
+function getChartHtml(){
+    let itemsHtml = ``
+
+    if (chartArray.length == 0) {return itemsHtml}
+    itemsHtml = `
+        <p>Your order</p>
+        <div class="order-list" id="order-list"></div>
+        `
+    
+    chartArray.forEach(function(item){
+        itemsHtml += `
+        <div class="order-item">
+            <p class="order-item-name">${item.item.name}</p>
+            <p class="order-item-remove" data-remove="${item.uuid}">remove</p>
+            <p class="order-item-price">$ ${item.item.price}</p>
+        </div>
+            `
+   })
+
+   itemsHtml += `
+        </div>
+        <div class="order-summary">
+           <p class="order-summary-label">Total price :</p>
+           <p class="order-summary-price">$ 999</p> 
+        </div>
+        <button class="order-complete-btn" id="order-complete-btn">Complete Order</button>    
+        `
+
+   return itemsHtml 
+}
+
+function renderItems(){
     document.getElementById('items').innerHTML = getItemsHtml()
 }
 
-render()
+function renderChart(){
+    document.getElementById('order').innerHTML = getChartHtml()
+}
+
+renderItems()

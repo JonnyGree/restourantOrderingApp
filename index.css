@@ -86,13 +86,12 @@ main, header{
 }
 
 /* order box*/
-.order-list{
+.order{
     display: flex;
     flex-direction: column;
     margin: 0;
     padding : 0px 10px ;
     text-align: center;
-
 }
 
 .order-item{
@@ -115,7 +114,7 @@ main, header{
     display: flex;
     border-top: 1px solid black;
 }
-.order-summary-price{
+.order .order-summary-price{
     margin-left: auto;  
 }
 
@@ -132,6 +131,18 @@ main, header{
     line-height: 24px; /* 150% */
     border: none;
     height: 35px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+#order-complete-banner {
+    background-color: #ECFDF5;
+    border-radius: 2px solid ;
+    padding: 20px 0px;
+    color: #065F46 ;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
 }
 
 /* modal */
