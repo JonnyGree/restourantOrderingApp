@@ -9,11 +9,9 @@ let chartArray = []
 document.addEventListener('click', function(e){
     console.log(e)
     if(e.target.dataset.add){
-        console.log(`add button ${e.target.dataset.add}`) 
         handleAddItemClick(e.target.dataset.add)
     }
     else if(e.target.dataset.remove){
-        console.log(`remove button ${e.target.dataset.remove}`) 
         handleRemoveItemClick(e.target.dataset.remove)
     }
     else if(e.target.id === 'order-complete-btn'){
@@ -110,11 +108,15 @@ function getChartHtml(){
             `
    })
 
+    const totalPrice = chartArray.reduce(function(total, currItem){
+        return total + currItem.item.price
+    }, 0)
+
    itemsHtml += `
         </div>
         <div class="order-summary">
            <p class="order-summary-label">Total price :</p>
-           <p class="order-summary-price">$ 999</p> 
+           <p class="order-summary-price">$ ${totalPrice}</p> 
         </div>
         <button class="order-complete-btn" id="order-complete-btn">Complete Order</button>    
         `
